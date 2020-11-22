@@ -75,11 +75,15 @@ WSGI_APPLICATION = 'TestProject.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    # 'ENGINE': 'django.db.backends.mysql',
+    # 'NAME': 'semy_colon',
+    #  'USER': 'root',
+    # 'PASSWORD': 'root',
+    # }
     'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'semy_colon',
-     'USER': 'root',
-    'PASSWORD': 'root',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
