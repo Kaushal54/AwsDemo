@@ -10,10 +10,18 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <!-- <div class="x_title">
-                            <h2> <small>Upload CSV</small></h2>
-                            <div class="clearfix"></div>
-                        </div> -->
+                        <div class="x_title">
+                            {% for msg in messages %}
+                            
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                {{msg}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                            {% endfor %}
+                        </div>
                         <div class="x_content" style="margin-top: 30px;">
                             <form action="." method="post" id="import_id" enctype="multipart/form-data"
                                 class="form-horizontal form-label-left">
@@ -25,7 +33,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="message_wrapper">
-                                            <h4 class="heading"> CSV Format</h4>
+                                            <h4 class="heading"> CSV Format </h4>
                                             <blockquote style="font-size: 13px;" class="message">
                                                 Enter the following information in proper format.<br />
                                                 1. Name <br />
@@ -53,7 +61,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="message_wrapper">
-                                            <h4 class="heading">Upload Customer CSV</h4>
+                                            <h4 class="heading">Upload Customer CSV </h4>
+                                    
                                             <blockquote style="font-size: 13px;" class="message">
                                                 Make sure you have added all the above information.
                                             </blockquote>
@@ -109,7 +118,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            {% endif %}    
+                            {% endif %} 
 
                             </form>
                         </div>
@@ -123,15 +132,5 @@
 
 {% block js_code %}
 
-{% if messages %}
-    {% for msg in messages %}
-    <script> new PNotify({
-            title: 'Member',
-            text: '{{msg.message}}',
-            type: 'success',
-            styling: 'bootstrap3'
-        });</script>
-    {% endfor %}
-{% endif %}
 
 {% endblock %}
