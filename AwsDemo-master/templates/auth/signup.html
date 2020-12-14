@@ -1,0 +1,167 @@
+{% include "base.html" %}
+
+{% block css_code %}
+
+<style>
+    .wrapper {
+	 max-width: 40rem;
+	 padding: 2rem;
+	 margin: 4rem auto;
+	 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	 border-radius: 4px;
+}
+ .ui-datepicker {
+	 display: none;
+	 width: 20rem;
+	 background: #fff;
+	 border-radius: 0.25rem;
+	 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+	 margin-top: 1rem;
+}
+ .ui-datepicker-header {
+	 text-align: center;
+	 padding: 1rem 0;
+	 text-transform: uppercase;
+	 letter-spacing: 0.1rem;
+}
+ .ui-datepicker-header a span {
+	 display: none;
+}
+ .ui-datepicker-header a.ui-corner-all {
+	 cursor: pointer;
+	 position: absolute;
+	 top: 0;
+	 width: 2rem;
+	 height: 2rem;
+	 margin: 0.5rem;
+	 border-radius: 0.5rem;
+}
+ .ui-datepicker-header a.ui-datepicker-prev {
+	 left: 0;
+}
+ .ui-datepicker-header a.ui-datepicker-prev::after {
+	 font-family: "Material Icons";
+	 content: "\e314";
+	 font-size: 1.5rem;
+	 color: black;
+}
+ .ui-datepicker-header a.ui-datepicker-next {
+	 right: 0;
+}
+ .ui-datepicker-header a.ui-datepicker-next::after {
+	 font-family: "Material Icons";
+	 content: "\e315";
+	 font-size: 1.5rem;
+	 color: black;
+}
+ .ui-datepicker-calendar {
+	 width: 100%;
+	 text-align: center;
+	 padding: 1rem;
+}
+ .ui-datepicker-calendar thead {
+	 color: grey;
+}
+ .ui-datepicker-calendar a {
+	 color: black;
+	 text-decoration: none;
+	 display: block;
+	 margin: 0 auto;
+	 width: 35px;
+	 height: 35px;
+	 line-height: 35px;
+	 border-radius: 50%;
+	 border: 1px solid transparent;
+	 cursor: pointer;
+}
+ .ui-datepicker-calendar a:hover {
+	 border: 1px solid grey;
+}
+ .ui-datepicker-calendar .ui-state-highlight {
+	 border-color: red;
+     color: red;
+     text-align: center;
+    line-height: unset;
+}
+ .ui-datepicker-calendar .ui-state-active {
+	background: red;
+    color: white;
+    text-align: center;
+    line-height: unset;
+}
+
+td a.ui-state-default{
+    text-align: center;
+    line-height: unset;
+}
+ 
+</style>
+
+{% endblock %}
+
+{% block html_code %}
+    <div class="auth_bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-md-6 col-lg-4 offset-lg-4 offset-md-3 offset-sm-2">
+                
+                <div class="account-wall">
+                    <h1 class="text-center login-title">Sign up to <span class='login-title-brand'> <b><i>ClearYourDoubt<i><b> <span> </h1>
+                    <img class="profile-img"
+                        src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                        alt="">
+                    <form class="form-signin" action="." method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" class="form-control" placeholder="First Name" name='first_name' required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                        <input type="text" class="form-control" placeholder="Last Name" name='last_name' required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                        <input type="email" class="form-control" placeholder="Email" name='email' required autofocus>
+                        <!-- <label>Select Date: </label> -->
+                        <!-- <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                            <input class="form-control" type="text" readonly />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div> -->
+
+
+                        <div class="form-group">
+                            <input type="text" name="dob" class="form-control check-in" autocomplete="off" placeholder="DOB">
+                        </div>
+                        
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign Up</button>
+                    </form>
+                </div>
+                <a href="#" class="text-center new-account">Have an accout ? Signin Here ! </a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block js_code %}
+
+    
+
+    <script>
+        // $(function () {
+        //         $("#datepicker").datepicker({
+        //             autoclose: true,
+        //             todayHighlight: true
+        //         })
+        //     });
+
+        // $('#datetimepicker1').datetimepicker();    
+
+        // Datepicker Config
+            $(document).ready(function () {
+                $(".check-in").datepicker({
+                    dateFormat: "d MM yy",
+                    duration: "medium"
+                });
+
+            });
+
+ 
+    </script>
+
+{% endblock %}
